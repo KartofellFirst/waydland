@@ -6,22 +6,31 @@
 
 # Waydland
 
-A Wayland dynamic island component with a mission to replace waybar-like menus, built with the Hyprland philosophy to expand the no-mouse-use concept. Written in pure C with GTK4.
+A native Wayland Dynamic Island component built to replace static, screen-wasting panels like Waybar. Designed with the Hyprland philosophy in mind, Waydland expands the no-mouse workflow while providing a highly modular, interactive environment. Written in pure C with native GTK4 and Cairo.
 
-**⚠️ Currently in active development**
+**⚠️ Currently in active development (Alpha)**
+
+---
+<h2>
+🏝️ Why Waydland?
+<img src="https://duiqt.github.io/herta_kuru/static/img/hertaa1.gif" width="30px">
+</h2>
+
+You need to monitor **time**, **RAM**, **battery**, or other simple stats? Or just want to display a GIF of Herta spinning whenever the Kuru Kuru song plays? You don't have to rely on Conky or Waybar. Waydland is exactly what you need — a minimalistic monitor that lives in the top-right corner of your screen, displaying the information you need, plus some extra features you'll definitely like!
+
+- **Extremely lightweight** — Applets in Waydland are independent, non-looping, auto-updating apps that can be literally updated by your fastfetch. No complicated structure is needed to create your own based on your favorite bash utility.
+
+- **Keyboard-driven** — Unlike other trays, Waydland is fully keyboard-driven and can be set up blazingly fast without reaching for the window to focus it (just add a keybind via your system config).
+
+- **Dynamic Applet Slot** — Temporary background tasks or attention-valuable monitors will auto-show when it's important (e.g., low battery percentage, alarm).
+
+- **Hide when unnecessary** — Bind a global combination to hide or fade Waydland whenever you need. Set it up to hide when you watch full-screen video or play games.
+
+And even more features! → See [PHILOSOPHY.md](docs/PHILOSOPHY.md).
 
 ---
 
-## Features
-
-- 🏝️ **Dynamic Island** — animated pill-shaped container, doesn't take up your screenspace as waybar 
-- 🎯 **No-mouse philosophy** — designed for keyboard-driven workflows (tho optimised for mouse-use too)
-- 🎨 **Smooth animations** — fade transitions and expand/collapse effects (still in progress)
-- 📦 **Modular architecture** — built-in applets with plugin support (waybar plugins inteprotator in progress)
-
----
-
-## Requirements
+## 📋 Requirements
 
 - Linux (Wayland session)
 - GTK4 >= 4.0.0
@@ -33,101 +42,90 @@ sudo apt install libgtk-4-dev libgtk-4-layer-shell-dev
 ```
 
 ### Arch Linux
+
 ```bash
 sudo pacman -S gtk4 gtk4-layer-shell
 ```
 
 ### Fedora
+
 ```bash
 sudo dnf install gtk4-devel gtk4-layer-shell-devel
 ```
 
 ---
 
-## Build & Run
+## 🛠️ Build & Run
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/KartofellFirst/waydland
+git clone [https://github.com/KartofellFirst/waydland](https://github.com/KartofellFirst/waydland)
 cd waydland
 ```
 
 2. Build with make:
+
 ```bash
 make
 ```
 
 3. Run:
+
 ```bash
 ./waydland
 ```
 
 ### Build Options
+
 ```bash
-make clean      # Remove binary
-make install    # Install to /usr/local/bin/
-make uninstall  # Remove from /usr/local/bin/
+make clean       # Remove binary
+make install     # Install to /usr/local/bin/
+make uninstall   # Remove from /usr/local/bin/
 ```
 
 ---
 
-## Project Structure
-
-```
-waydland/
-├── src/
-│   ├── main.c          # Entry point
-│   ├── island.c        # Core island logic
-│   └── island.h        # Public API
-├── Makefile            # Build system
-├── LICENSE             # MIT License
-└── README.md           # This file
-```
-
----
-
-## Usage
+## ⌨️ Usage & Navigation
 
 ### Manual Run
+
 ```bash
 ./waydland
 ```
 
 ### Autostart with Hyprland
 
-Add to your `~/.config/hypr/hyprland.conf`:
+Add the following to your `~/.config/hypr/hyprland.conf`:
+
 ```ini
 exec-once = /path/to/waydland
 ```
 
-Replace `/path/to/` with the actual absolute path to the binary.
+### Navigation Rules
 
-### Navigation
-- **Hover** — arrows appear for navigation
-- **Left/Right arrows** — switch between applets
-- **Click applet** — expand/collapse detailed view
-- **Click settings (⚙)** — open settings panel
+* **Hover** — Contextual navigation arrows appear if the dynamic tray has overflow items.
+* **Left/Right Arrows** — Cycle through your active dynamic applets.
+* **Click/Select Applet** — Expand or collapse the detailed native GTK view.
 
 ---
 
-## Configuration
+## 🔧 Configuration
 
-**⚠️ Coming soon** — planned config file support:
+**⚠️ Coming soon** — Planned declarative config file support:
 
-- `~/.config/waydland/waydland.conf` — island settings (margins, height, theme)
-- `~/.config/waydland/modules/*.conf` — per-module configuration
-
----
-
-
-## Contributing
-
-Found a bug or have an idea? [Open an issue](https://github.com/KartofellFirst/waydland/issues)
-
-Pull requests are welcome!
+* `~/.config/waydland/waydland.conf` — Island global configurations (margins, default height, physics easing curves).
+* `~/.config/waydland/modules/*.json` — Per-module declarative JSON architecture payloads.
 
 ---
 
-## License
+## 🤝 Contributing
 
-MIT License — see [LICENSE](LICENSE) file for details.
+Found a bug or want to optimize the Cairo drawing loops? [Open an issue](https://github.com/KartofellFirst/waydland/issues). Pull requests are always welcome!
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
+
