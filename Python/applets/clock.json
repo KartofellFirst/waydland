@@ -1,0 +1,50 @@
+{
+  "name": "system_clock",
+  "execute": "date +'%H:%M'",
+  "update_rate_ms": 1000,
+  
+  "compact": {
+    "type": "label",
+    "source": "00:00"
+  },
+  
+  "expanded": {
+    "type": "box",
+    "orientation": "vertical",
+    "spacing": 12,
+    "items": [
+      {
+        "type": "text",
+        "label": "Time & Date Settings",
+        "bold": true,
+        "align": "center"
+      },
+      {
+        "type": "box",
+        "orientation": "horizontal",
+        "spacing": 10,
+        "items": [
+          { "type": "button", "label": "Calendar", "command": "gnome-calendar || korganizer" },
+          { "type": "button", "label": "Timezone Settings", "command": "gnome-control-center datetime" }
+        ]
+      },
+      {
+        "type": "box",
+        "orientation": "vertical",
+        "spacing": 4,
+        "items": [
+          { "type": "text", "label": "Set Reminder Task:" },
+          { "type": "input", "placeholder": "Type reminder details and press Enter...", "command": "notify-send 'Island Reminder' '{}'" }
+        ]
+      },
+      {
+        "type": "toggle",
+        "label": "Do Not Disturb Mode",
+        "active": false,
+        "command": "notify-send 'DND Mode Swapped to {}'"
+      }
+    ]
+  },
+  
+  "style": ".island-bold-text { font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; } .island-menu-btn { padding: 6px 12px; font-size: 13px; }"
+}
