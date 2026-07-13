@@ -59,7 +59,7 @@ sudo dnf install gtk4-devel gtk4-layer-shell-devel python3-gobject
 
 ```bash
 git clone https://github.com/KartofellFirst/waydland
-cd waydland
+cd waydland/Python
 ```
 
 2. (Optional) Create and activate a virtual environment:
@@ -86,6 +86,7 @@ python main.py
 ### Manual Run
 
 ```bash
+cd Python
 python main.py
 ```
 
