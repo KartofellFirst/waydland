@@ -1,0 +1,1 @@
+Due to C's complexity and the instability of my project structure, the project's alpha will be written in PyGObject (a C-emulating framework) first, to avoid fighting memory leaks while developing the applet engine and other complicated stuff. After the first release, I'll consider rewriting it in C. For now — sorry, my RAM-starved Hyprland friends...😔
