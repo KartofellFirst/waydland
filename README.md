@@ -8,7 +8,7 @@
 
 A native Wayland Dynamic Island component built to replace static, screen-wasting panels like Waybar. Designed with the Hyprland philosophy in mind, Waydland expands the no-mouse workflow while providing a highly modular, interactive environment. Written in pure C with native GTK4 and Cairo.
 
-**⚠️ Currently in active development (Alpha)**
+**⚠️ Currently in active development (Python Alpha)**
 
 ---
 <h2>
@@ -33,65 +33,60 @@ And even more features! → See [PHILOSOPHY.md](docs/PHILOSOPHY.md).
 ## 📋 Requirements
 
 - Linux (Wayland session)
-- GTK4 >= 4.0.0
-- gtk4-layer-shell >= 1.0.0
+- Python 3.10 or higher
+- **GTK4** and **`gtk4-layer-shell`** libraries
 
-### Ubuntu/Debian
+### Install System Dependencies
+
+#### Ubuntu/Debian
 ```bash
-sudo apt install libgtk-4-dev libgtk-4-layer-shell-dev
+sudo apt install libgtk-4-dev libgtk-4-layer-shell-dev python3-gi python3-gi-cairo gir1.2-gtk-4.0
 ```
 
-### Arch Linux
-
+#### Arch Linux
 ```bash
-sudo pacman -S gtk4 gtk4-layer-shell
+sudo pacman -S gtk4 gtk4-layer-shell python-gobject
 ```
 
-### Fedora
-
+#### Fedora
 ```bash
-sudo dnf install gtk4-devel gtk4-layer-shell-devel
+sudo dnf install gtk4-devel gtk4-layer-shell-devel python3-gobject
 ```
 
----
-
-## 🛠️ Build & Run
+## 🛠️ Run
 
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/KartofellFirst/waydland](https://github.com/KartofellFirst/waydland)
+git clone https://github.com/KartofellFirst/waydland
 cd waydland
 ```
 
-2. Build with make:
+2. (Optional) Create and activate a virtual environment:
 
 ```bash
-make
+python -m venv venv
+source venv/bin/activate
 ```
 
-3. Run:
+3. Install Python dependencies:
 
 ```bash
-./waydland
+pip install -r requirements.txt
 ```
 
-### Build Options
+4. Run:
 
 ```bash
-make clean       # Remove binary
-make install     # Install to /usr/local/bin/
-make uninstall   # Remove from /usr/local/bin/
+python main.py
 ```
-
----
 
 ## ⌨️ Usage & Navigation
 
 ### Manual Run
 
 ```bash
-./waydland
+python main.py
 ```
 
 ### Autostart with Hyprland
@@ -99,7 +94,7 @@ make uninstall   # Remove from /usr/local/bin/
 Add the following to your `~/.config/hypr/hyprland.conf`:
 
 ```ini
-exec-once = /path/to/waydland
+exec-once = python /path/to/waydland/main.py
 ```
 
 ### Navigation Rules
@@ -107,8 +102,6 @@ exec-once = /path/to/waydland
 * **Hover** — Contextual navigation arrows appear if the dynamic tray has overflow items.
 * **Left/Right Arrows** — Cycle through your active dynamic applets.
 * **Click/Select Applet** — Expand or collapse the detailed native GTK view.
-
----
 
 ## 🔧 Configuration
 
@@ -121,11 +114,10 @@ exec-once = /path/to/waydland
 
 ## 🤝 Contributing
 
-Found a bug or want to optimize the Cairo drawing loops? [Open an issue](https://github.com/KartofellFirst/waydland/issues). Pull requests are always welcome!
+Found a bug or want to help with C part? [Open an issue](https://github.com/KartofellFirst/waydland/issues). Pull requests are always welcome!
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
-
+Distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
