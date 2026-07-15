@@ -34,23 +34,23 @@ And even more features! → See [PHILOSOPHY.md](docs/PHILOSOPHY.md).
 
 - Linux (Wayland session)
 - Python 3.10 or higher
-- **GTK4** and **`gtk4-layer-shell`** libraries
+- **`GTK4`**, **`gtk4-layer-shell`** and **`WebKitGTK`** libraries
 
 ### Install System Dependencies
 
 #### Ubuntu/Debian
 ```bash
-sudo apt install libgtk-4-dev libgtk-4-layer-shell-dev python3-gi python3-gi-cairo gir1.2-gtk-4.0
+sudo apt install libgtk-4-dev libgtk-4-layer-shell-dev python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-webkit-6.0
 ```
 
 #### Arch Linux
 ```bash
-sudo pacman -S gtk4 gtk4-layer-shell python-gobject
+sudo pacman -S gtk4 gtk4-layer-shell webkitgtk-6.0 python-gobject
 ```
 
 #### Fedora
 ```bash
-sudo dnf install gtk4-devel gtk4-layer-shell-devel python3-gobject
+sudo dnf install gtk4-devel gtk4-layer-shell-devel python3-gobject webkitgtk6.0-devel
 ```
 
 ## 🛠️ Run
@@ -62,7 +62,7 @@ git clone https://github.com/KartofellFirst/waydland
 cd waydland/Python
 ```
 
-2. (Optional) Create and activate a virtual environment:
+*2. (Optional) Create and activate a virtual environment:*
 
 ```bash
 python -m venv venv
@@ -106,10 +106,9 @@ exec-once = python /path/to/waydland/main.py
 
 ## 🔧 Configuration
 
-**⚠️ Coming soon** — Planned declarative config file support:
+Waydland uses a configuration file located in the project directory:
 
-* `~/.config/waydland/waydland.conf` — Island global configurations (margins, default height, physics easing curves).
-* `~/.config/waydland/modules/*.json` — Per-module declarative JSON architecture payloads.
+- `./waydland/Python/waydland.conf` — Main configuration file for global settings (spacings, styles, deform settings)
 
 ---
 
