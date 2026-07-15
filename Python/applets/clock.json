@@ -1,50 +1,11 @@
 {
-  "name": "system_clock",
+  "name": "clock",
   "execute": "date +'%H:%M'",
   "update_rate_ms": 1000,
-  
   "compact": {
     "type": "label",
     "source": "00:00"
   },
-  
-  "expanded": {
-    "type": "box",
-    "orientation": "vertical",
-    "spacing": 12,
-    "items": [
-      {
-        "type": "text",
-        "label": "Time & Date Settings",
-        "bold": true,
-        "align": "center"
-      },
-      {
-        "type": "box",
-        "orientation": "horizontal",
-        "spacing": 10,
-        "items": [
-          { "type": "button", "label": "Calendar", "command": "gnome-calendar || korganizer" },
-          { "type": "button", "label": "Timezone Settings", "command": "gnome-control-center datetime" }
-        ]
-      },
-      {
-        "type": "box",
-        "orientation": "vertical",
-        "spacing": 4,
-        "items": [
-          { "type": "text", "label": "Set Reminder Task:" },
-          { "type": "input", "placeholder": "Type reminder details and press Enter...", "command": "notify-send 'Island Reminder' '{}'" }
-        ]
-      },
-      {
-        "type": "toggle",
-        "label": "Do Not Disturb Mode",
-        "active": false,
-        "command": "notify-send 'DND Mode Swapped to {}'"
-      }
-    ]
-  },
-  
+  "expanded": "<div flex-direction=\"column\" gap=\"12px\">\n<p font-size=\"24px\" font-weight=\"bolder\" font-style=\"italic\" font-family=\"monospace\" align-content=\"center\">Time & Date Settings</p>\n<div flex-direction=\"row\" gap=\"10px\">\n<button onclick=\"python -c \"print('I'm clicked')\"\">click_me</button>\n<button onclick=\"python -c \"print('I'm clicked')\"\">click_me</button>\n</div>\n<div flex-direction=\"column\" gap=\"4px\">\n<p color=\"#444\">Set Reminder Task:</p>\n<input placeholder=\"Type reminder details and press Enter...\" value=\"\" onchange=\"python -c \"from clock import input_input; input_input(this.value)\"\">\n</div>\n<input type=\"toggle\"  onchange=\"python -c \"from clock import input_toggle; input_toggle(this.checked)\">\n<input type=\"range\" min=\"0\" max=\"100\" value=\"0\" onchange=\"python -c \"from clock import input_range; input_range(this.value)\"\">\n</div>",
   "style": ".island-bold-text { font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; } .island-menu-btn { padding: 6px 12px; font-size: 13px; }"
 }
