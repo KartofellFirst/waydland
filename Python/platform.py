@@ -31,15 +31,15 @@ class LayerShellPlatform(PlatformWindow):
         Gtk4LayerShell.set_anchor(window, Gtk4LayerShell.Edge.RIGHT, True)
         Gtk4LayerShell.set_anchor(window, Gtk4LayerShell.Edge.LEFT, False)
         Gtk4LayerShell.set_anchor(window, Gtk4LayerShell.Edge.BOTTOM, False)
+        Gtk4LayerShell.set_keyboard_mode(window, Gtk4LayerShell.KeyboardMode.ON_DEMAND)
 
-        # Set keyboard mode to NONE
-        Gtk4LayerShell.set_keyboard_mode(window, Gtk4LayerShell.KeyboardMode.NONE)
 
 class MacPlatform(PlatformWindow):
     def setup(self, window: Gtk.Window):
         window.set_decorated(False)
         # Provide a fallback size so the window manager doesn't collapse it
         window.set_default_size(0, 0)
+        
 def get_platform() -> PlatformWindow:
     # If on macOS, or if the layer-shell library isn't installed on Linux, fallback
     if sys.platform == "darwin" or not HAS_LAYER_SHELL:
